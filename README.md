@@ -20,6 +20,7 @@
 | <a name="aws_secret_key"></a> [aws\_secret\_key](#input\_aws\_secret\_key) | AWS secret key  | `string` | none | yes |
 | <a name="key_name"></a> [key\_name](#input\_key\_name) | The name of the key which you would like to use to ssh | `string` | none | yes |
 | <a name="servers"></a> [servers](#input\_servers) | No of servers to be provisioned  | `number` | 1 | no |
+| <a name="region"></a> [region](#input\_servers) | AWS region where you would like to provision | `string` | us-east-2 | no |
 
 ## Outputs 
 

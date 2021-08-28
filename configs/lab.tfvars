@@ -7,3 +7,6 @@ aws_secret_key = "xxxxxxx"
 key_name       = "xxxxxxx"
 # Number of servers you would like to provision
 servers          = 1
+# AWS region 
+#(please switch to different region incase if you dont have default resources in us-east-2)
+region    = "us-east-2"
