@@ -33,15 +33,15 @@
 
 - Please download the pem file which you would like to use and add it in the         root folder.
 - Fill the placeholders in `configs/lab.tfvars`.
-- If you have the terraform (>= 0.13.7) version installed in your machine.
-- To deploy in dev environment 
+- If you have the terraform (>= 0.13.7) version installed in your machine (not       required, please see `b`). 
+#### a) To deploy in dev environment 
     ```bash
     terraform init
     terraform workspace new dev
     terraform plan --var-file=./configs/lab.tfvars -out dev.tfplan
     terraform apply "dev.tfplan"
     ```
-- Incase If you don't have terraform installed in your machine 
+#### b) To deploy in dev environment 
     ```bash
     docker run -i -t -v $PWD:$PWD -w $PWD hashicorp/terraform:0.13.7 init
     docker run -i -t -v $PWD:$PWD -w $PWD hashicorp/terraform:0.13.7 workspace new dev
