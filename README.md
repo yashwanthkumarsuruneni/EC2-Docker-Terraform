@@ -1,5 +1,9 @@
 # AWS EC2 - Docker - Terraform
 
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.7 |
+
 ## Pre - requisite 
    - AWS account
    - AWS Access Key ID.
@@ -25,13 +29,9 @@
 
 ## Instructions 
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.7 |
-
 ### Step-1 (Deployment)
 
-- Please download the pem file which you would like to use and add it in the         folder.
+- Please download the pem file which you would like to use and add it in the         root folder.
 - Fill the placeholders in `configs/lab.tfvars`.
 - If you have the terraform (>= 0.13.7) version installed in your machine.
 - To deploy in dev environment 
@@ -43,10 +43,10 @@
     ```
 - Incase If you don't have terraform installed in your machine 
     ```bash
-    docker run -i -t -v $PWD:$PWD  -w $PWD hashicorp/terraform:0.13.7 init
-    docker run -i -t -v $PWD:$PWD  -w $PWD hashicorp/terraform:0.13.7 workspace new dev
-    docker run -i -t -v $PWD:$PWD  -w $PWD hashicorp/terraform:0.13.7 plan --var-file=./configs/lab.tfvars -out dev.tfplan
-    docker run -i -t -v $PWD:$PWD  -w $PWD hashicorp/terraform:0.13.7 apply "dev.tfplan"
+    docker run -i -t -v $PWD:$PWD -w $PWD hashicorp/terraform:0.13.7 init
+    docker run -i -t -v $PWD:$PWD -w $PWD hashicorp/terraform:0.13.7 workspace new dev
+    docker run -i -t -v $PWD:$PWD -w $PWD hashicorp/terraform:0.13.7 plan --var-file=./configs/lab.tfvars -out dev.tfplan
+    docker run -i -t -v $PWD:$PWD -w $PWD hashicorp/terraform:0.13.7 apply "dev.tfplan"
     ```
   
 ### Step-2 (Validate)
@@ -62,9 +62,10 @@
     ```bash
     terraform destroy --var-file=./configs/lab.tfvars
     ```
+    If you used docker to deploy 
 
     ```bash
-    docker run -i -t -v $PWD:$PWD  -w $PWD hashicorp/terraform:0.13.7 destroy --var-file=./configs/lab.tfvars
+    docker run -i -t -v $PWD:$PWD -w $PWD hashicorp/terraform:0.13.7 destroy --var-file=./configs/lab.tfvars
     ```
 
 
