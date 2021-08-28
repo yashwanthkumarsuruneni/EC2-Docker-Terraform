@@ -5,6 +5,6 @@
 *.log
 *.pem
 *.lock.hcl
-*.tfvars
+# *.tfvars
 *.exe
 *.DS_Store
