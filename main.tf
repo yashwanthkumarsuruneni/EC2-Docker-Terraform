@@ -1,4 +1,9 @@
 
+locals {
+  app_name = terraform.workspace == "default" ?  "mauvi" : "${terraform.workspace}-mauvi"
+}
+
+
 # This uses the default vpc
 resource "aws_default_vpc" "default" {
 }
@@ -8,7 +13,7 @@ resource "aws_default_vpc" "default" {
 ################################################################################
 
 resource "aws_security_group" "instance_sg" {
-  name        = "${var.environment_name}-mauvi"
+  name        = local.app_name
   description = "The security group to allow http & ssh"
   vpc_id      = aws_default_vpc.default.id
   
@@ -49,7 +54,7 @@ resource "aws_instance" "root-mauvi" {
   disable_api_termination = false
 
   tags = {
-    Name = "mauvi-${var.environment_name}-${count.index}"
+    Name = "${local.app_name}-${count.index}"
   }
 }
 

@@ -27,10 +27,10 @@ variable "instance_type" {
   default = "t2.medium"
 }
 
-variable "environment_name" {
-  type = string
-  description = "Environment name i.e, dev/qa/uat/prod"
-}
+# variable "environment_name" {
+#   type = string
+#   description = "Environment name i.e, dev/qa/uat/prod"
+# }
 
 variable "tags" {
   description = "A mapping of Tags for the resources "
