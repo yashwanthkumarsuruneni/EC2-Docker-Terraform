@@ -1,0 +1,10 @@
+.terraform/
+*.tfstate*
+*.plan
+.terraform-version
+*.log
+*.pem
+*.lock.hcl
+*.tfvars
+*.exe
+*.DS_Store
